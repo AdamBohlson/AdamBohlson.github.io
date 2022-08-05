@@ -80,6 +80,11 @@ p {text-align: center;}
 <p>
 	<input type="button" id="reset" value="Reset Wealth" onclick="resetWealth()"/>
 </p>
+	
+<p>
+	Auto-Work
+	<input type="checkbox" id="autowork" value="autowork" value="workworkwork"/>
+</p>
 
 <hr width="500" size="10" noshade>
 
@@ -126,7 +131,7 @@ p {text-align: center;}
 		{
 			case "Custom Value":
 				question.innerHTML = "How many of the following items can you afford in the United States?";
-				wage = 0;
+				wage = 7.25;
 				house$ = 440300;
 				rent$ = 1004;
 				pizza$ = 11.50;
@@ -605,6 +610,9 @@ p {text-align: center;}
 	
 	function updateWealth()
 	{
+		if (document.getElementById("autowork").checked) {
+			work();
+		}
 		if (working)
 		{
 			wealth += (wage/36000);
